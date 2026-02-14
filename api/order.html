@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk from Earth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffffff, #9e9e9e, #5c5c5c);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .main-img:hover {
+        transform: rotate(1deg) scale(1.01);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .thumbnail:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+      }
+    </style>
+  </head>
+  <body class="text-white min-h-screen p-8 font-sans">
+    <a
+      href="listorder.html"
+      class="inline-block mb-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded"
+    >
+      ⬅️ ย้อนกลับหน้าเมนู
+    </a>
+    <div
+      class="max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl shadow-xl p-8 border border-white/20"
+    >
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- กล่องรูปภาพ -->
+        <div class="md:w-1/2 text-center">
+          <img
+            id="mainImage"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/fc/004-soymilk.jpg"
+            alt="Milk For Handsome MEN"
+            class="main-img w-full rounded-xl shadow-xl mb-4 transition-transform duration-500"
+          />
+          <div class="flex justify-center gap-3">
+            <img
+              src="https://media.istockphoto.com/id/1222018207/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B9%80%E0%B8%97%E0%B8%99%E0%B8%A1%E0%B8%A5%E0%B8%87%E0%B9%83%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1.jpg?s=612x612&w=0&k=20&c=34letOSA2_JiE8zGbJ6EaEcq7KibmyuWL2v0a0I9I-o="
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://dairynutrition.ca/sites/dairynutrition/files/image_file_browser/dn_article/2023-03/shutterstock_4305538_1182x788px.jpg"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7KiD8XN8SD2l4hf1292_RasQyWdwk3Gm0g&s"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7QU02RlLJlieaUUy7vMVMCZ_Y0ZJsX_MIUw&s"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://happygrocers.co/cdn/shop/files/WholeMilk_b0af250e-9b70-428c-97e0-b735eb25f148.jpg?v=1707722560&width=480"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <!-- รายละเอียดสินค้า -->
+        <div class="md:w-1/2 text-left">
+          <h2 class="text-4xl font-bold text-pink-300 mb-2">
+            Milk From Handsome MEN
+          </h2>
+          <p class="text-white/80 mb-4">
+            นมถั่วเหลืองเข้มข้นระดับ Ultra จากพลังหนุ่มหล่อระดับ Galaxy<br />อัดแน่นด้วยความเท่ที่แม้แต่ยานแม่ยังต้องเหลียวมอง
+          </p>
+          <p class="text-3xl font-bold text-lime-400 mb-6">฿<span id="price">35</span></p>
+
+          <div class="flex items-center gap-4 mb-4">
+            <label for="quantity" class="text-white">จำนวน:</label>
+            <input id="quantity" type="number" value="1" min="1" class="text-black px-3 py-2 rounded w-20" oninput="updateTotal()"/>
+          </div>
+
+          <p class="mb-4 text-lg">ราคารวม: <span id="total">35</span> บาท</p>
+
+          <button onclick="orderNow()" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-xl transition">
+            ✅ สั่งซื้อเลย
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const basePrice = 35;
+
+      const imageList = [
+        "https://upload.wikimedia.org/wikipedia/commons/f/fc/004-soymilk.jpg",
+        "https://media.istockphoto.com/id/1222018207/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B9%80%E0%B8%97%E0%B8%99%E0%B8%A1%E0%B8%A5%E0%B8%87%E0%B9%83%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1.jpg?s=612x612&w=0&k=20&c=34letOSA2_JiE8zGbJ6EaEcq7KibmyuWL2v0a0I9I-o=",
+        "https://dairynutrition.ca/sites/dairynutrition/files/image_file_browser/dn_article/2023-03/shutterstock_4305538_1182x788px.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7KiD8XN8SD2l4hf1292_RasQyWdwk3Gm0g&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7QU02RlLJlieaUUy7vMVMCZ_Y0ZJsX_MIUw&s",
+        "https://happygrocers.co/cdn/shop/files/WholeMilk_b0af250e-9b70-428c-97e0-b735eb25f148.jpg?v=1707722560&width=480",
+      ];
+
+      let currentIndex = 0;
+
+      function changeImage(src) {
+        document.getElementById("mainImage").src = src;
+        currentIndex = imageList.indexOf(src);
+      }
+
+      function updateTotal() {
+        const quantity = parseInt(document.getElementById("quantity").value) || 1;
+        document.getElementById("total").innerText = quantity * basePrice;
+      }
+
+      function orderNow() {
+        const quantity = parseInt(document.getElementById("quantity").value) || 1;
+        const total = quantity * basePrice;
+        alert(`คุณได้สั่งซื้อ Milk From Handsome MEN จำนวน ${quantity} ขวด รวมเป็นเงิน ${total} บาท`);
+      }
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % imageList.length;
+        document.getElementById("mainImage").src = imageList[currentIndex];
+      }, 4000);
+    </script>
+  </body>
+</html>

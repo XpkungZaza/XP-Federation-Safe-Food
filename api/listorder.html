@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>รายการสินค้า - Xp Federation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle, #1a1a1a, #000000);
+      color: white;
+    }
+    .card {
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen py-10 px-6">
+
+  <header id="navbar" class="bg-gundam py-4 px-6 flex justify-between items-center shadow-lg fixed w-full z-20">
+  <div class="flex items-center space-x-3 cursor-pointer" onclick="location.href='index.html'">
+    <img src="C:\Users\Acer\Downloads\ChatGPT Image Jul 3, 2025, 02_32_56 PM.png" alt="logo" class="w-10 h-10 rounded-full shadow-md" />
+    <h1 class="text-2xl font-bold typewriter-text">Xp Federation Safe Food</h1>
+  </div>
+
+  <div class="relative inline-block text-left">
+    <button onclick="toggleMenu()" class="bg-white text-black px-4 py-2 rounded hover:bg-yellow-400">
+      ☰
+    </button>
+    <div id="menuDropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
+      <a href="index.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Home</a>
+      <a href="listorder.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Menu</a>
+      <a href="promotionmix.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Promotion</a>
+      <a href="info.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Profile</a>
+      <a href="login.html" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-yellow-200">🚪 Logout</a>
+    </div>
+  </div>
+</header>
+  <h1 class="text-4xl font-bold text-center mb-10">🛍 รายการสินค้า</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+    <!-- นมจืด -->
+    <!-- นมจืด -->
+<div class="bg-white text-black p-4 rounded-lg shadow-lg card">
+  <a href="order.html">
+    <img src="https://lh3.googleusercontent.com/proxy/4eFYXnfyQb2rbce_hafF17FlM1rRXz0rBPoEOGOjEVRRPzSZYK3KF03SlE7_j8q1f9qVMxhnwucLhGBtkXXdjDwpLrlaj3mjAaO9soYQEGsspUfRh8prbvGb" alt="นมจืด" class="w-30 mx-auto mb-4 hover:scale-190 transition duration-200">
+  </a>
+  <h2 class="text-xl font-bold text-center mb-2">นมจืด</h2>
+  <p class="text-center mb-4">ราคา: 25 บาท</p>
+  <a href="order.html" class="block w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded text-center">สั่งซื้อ</a>
+</div>
+
+<!-- มะม่วง -->
+<div class="bg-white text-black p-4 rounded-lg shadow-lg card">
+  <a href="order1.html">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQte9qGmOIm-BKmNiSjHYJJhRWkgej0atlo1w&s" alt="มะม่วง" class="w-33 mx-auto mb-4 hover:scale-110 transition duration-200">
+  </a>
+  <h2 class="text-xl font-bold text-center mb-2">มะม่วง</h2>
+  <p class="text-center mb-4">ราคา: 35 บาท</p>
+  <a href="order1.html" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 rounded text-center">สั่งซื้อ</a>
+</div>
+
+<!-- ลาสเบอรี่ -->
+<div class="bg-white text-black p-4 rounded-lg shadow-lg card">
+  <a href="order2.html">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwnn6JjdWHtYLcF_Ub9kJc9DF709_U-Ejccg&s" alt="ลาสเบอรี่" class="w-34 mx-auto mb-4 hover:scale-110 transition duration-200">
+  </a>
+  <h2 class="text-xl font-bold text-center mb-2">ลาสเบอรี่</h2>
+  <p class="text-center mb-4">ราคา: 40 บาท</p>
+  <a href="order2.html" class="block w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 rounded text-center">สั่งซื้อ</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menuDropdown');
+    menu.classList.toggle('hidden');
+  }
+</script>
+
+  </div>
+</body>
+</html>

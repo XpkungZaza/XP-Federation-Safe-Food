@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xp Federation Safe Food</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle, #1a1a1a, #000000);
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+    }
+    .typewriter-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .bg-gundam {
+      background: linear-gradient(135deg, #ff0000, #ffffff, #0047ab, #ffcc00);
+    }
+    .dark-mode {
+      background-color: #111;
+      color: #eee;
+    }
+    .dark-mode nav {
+      background-color: #222 !important;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  <audio id="gundamIntro" src="gundam-intro.mp3" autoplay></audio>
+
+  <header id="navbar" class="bg-gundam py-4 px-6 flex justify-between items-center shadow-lg fixed w-full z-20">
+  <div class="flex items-center space-x-3 cursor-pointer" onclick="location.href='index.html'">
+    <img src="gundampic" alt="logo" class="w-10 h-10 rounded-full shadow-md" />
+    <h1 class="text-2xl font-bold typewriter-text">Xp Federation Safe Food</h1>
+  </div>
+
+  <div class="relative inline-block text-left">
+    <button onclick="toggleMenu()" class="bg-white text-black px-4 py-2 rounded hover:bg-yellow-400">
+      ☰
+    </button>
+    <div id="menuDropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
+      <a href="index.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Home</a>
+      <a href="listorder.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Menu</a>
+      <a href="promotionmix.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Promotion</a>
+      <a href="info.html" class="block px-4 py-2 text-black hover:bg-yellow-200">Profile</a>
+      <a href="uml.html" class="block px-4 py-2 text-black hover:bg-yellow-200">📊 UML</a>
+      <a href="linkRESTAURANT.html" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-yellow-200">🚪 other resterant</a>
+      <a href="linkCOOking.html" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-yellow-200">🚪 cooking</a>
+    </div>
+  </div>
+</header>
+
+
+  <main class="pt-32 px-4">
+    <div class="flex flex-col items-center justify-center fade-in">
+      <input type="text" placeholder="Search here..."
+        class="w-full max-w-xl p-4 text-black rounded-md focus:ring-4 focus:ring-yellow-400 outline-none" />
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+        <div class="bg-white text-black p-6 rounded shadow-lg transform transition hover:scale-105 fade-in" title="Click to learn more">
+          🍔 <h2 class="font-bold text-lg">Food</h2>
+          <p>Delicious and safe.</p>
+        </div>
+        <div class="bg-white text-black p-6 rounded shadow-lg transform transition hover:scale-105 fade-in" title="Click to learn more">
+          ☕ <h2 class="font-bold text-lg">Drink</h2>
+          <p>Fresh and strong.</p>
+        </div>
+        <div class="bg-white text-black p-6 rounded shadow-lg transform transition hover:scale-105 fade-in" title="Click to learn more">
+          🍰 <h2 class="font-bold text-lg">Desserts</h2>
+          <p>Sweet and safe.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-gray-300 mt-20 py-4 border-t border-gray-600">
+    Powered by GN Drive - Celestial Being
+  </footer>
+
+  <script>
+    // Typewriter effect
+    const textEl = document.querySelector('.typewriter-text');
+    const fullText = textEl.textContent;
+    let idx = 0;
+    function typeEffect() {
+      textEl.textContent = fullText.substring(0, idx++);
+      if (idx <= fullText.length) setTimeout(typeEffect, 100);
+    }
+    typeEffect();
+
+    // Fade-in effect
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".fade-in").forEach((el, i) => {
+        setTimeout(() => el.classList.add("visible"), i * 300);
+      });
+    });
+
+    // Menu toggle
+    function toggleMenu() {
+      const dropdown = document.getElementById("menuDropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    // Click sound
+    const clickSound = document.getElementById("clickSound");
+    document.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("click", () => {
+        clickSound.play();
+      });
+    });
+
+    // Intro sound
+    const intro = document.getElementById("gundamIntro");
+    setTimeout(() => intro.pause(), 6000);
+
+    // Theme toggle
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    // Scroll navbar effect
+    window.addEventListener("scroll", () => {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("bg-black", "bg-opacity-70");
+      } else {
+        navbar.classList.remove("bg-black", "bg-opacity-70");
+      }
+    });
+
+    // Keyboard shortcut
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'h' || e.key === 'H') {
+        alert("Going Home!");
+      }
+    });
+  
+  function toggleMenu() {
+    const menu = document.getElementById('menuDropdown');
+    menu.classList.toggle('hidden');
+  }
+  fetch('get_menu.php')
+  .then(r=>r.json())
+  .then(({data})=>{
+    console.log('menu', data); // แสดงรายการสินค้า
+  });
+
+  const form = new FormData();
+form.append('code','GN10OFF');
+form.append('subtotal','120');
+
+fetch('apply_coupon.php',{method:'POST', body:form})
+  .then(r=>r.json())
+  .then(console.log); // {ok:true, discount:12, ...}
+
+  const payload = {
+  user_id: null,               // ถ้ามีระบบล็อกอิน ส่ง id ได้
+  coupon_code: 'GN10OFF',      // หรือ null/'' ถ้าไม่ใช้คูปอง
+  items: [
+    {id: 1, qty: 2},           // id จาก products
+    {id: 2, qty: 1}
+  ]
+};
+
+fetch('create_order.php', {
+  method:'POST',
+  headers:{'Content-Type':'application/json'},
+  body: JSON.stringify(payload)
+})
+.then(r=>r.json())
+.then(res=>{
+  if(res.ok){
+    alert('สั่งซื้อสำเร็จ เลขคำสั่ง: '+res.order_number+'\nยอดสุทธิ: ฿'+res.total);
+  }else{
+    alert('สั่งซื้อไม่สำเร็จ: '+res.message);
+  }
+});
+
+  </script>
+</body>
+</html>

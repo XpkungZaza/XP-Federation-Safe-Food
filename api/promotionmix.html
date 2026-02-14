@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>โปรโมชั่นผสมวัตถุดิบ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  
+  <body class="bg-gradient-to-tr from-rose-100 to-yellow-100 min-h-screen p-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl font-bold text-pink-700 mb-4">
+        🍹 ผสมวัตถุดิบ โปรโมชั่นสุดเฟี้ยว!
+      </h1>
+      <p class="mb-6 text-gray-700">
+        ลากวัตถุดิบ 2 อย่างมาผสมกันในช่องด้านล่าง
+      </p>
+
+      <!-- ปุ่มย้อนกลับ -->
+      <a
+        href="index.html"
+        class="inline-block mb-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded"
+      >
+        ⬅️ ย้อนกลับหน้าเมนู
+      </a>
+
+      <!-- วัตถุดิบ -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Apple"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-pink-100"
+        >
+          🍎 Apple
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Water"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-blue-100"
+        >
+          💧 Water
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Milk"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-indigo-100"
+        >
+          🥛 Milk
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Chocolate"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-yellow-100"
+        >
+          🍫 Chocolate
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Mango"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-orange-100"
+        >
+          🥭 Mango
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Strawberry"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-red-100"
+        >
+          🍓 Strawberry
+        </div>
+        <div
+          draggable="true"
+          ondragstart="drag(event)"
+          id="Cum"
+          class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-gray-200"
+        >
+          🧪 Cum
+        </div>
+      </div>
+
+      <!-- พื้นที่ผสม -->
+      <div
+        class="bg-white border-4 border-dashed border-pink-400 rounded-2xl p-10 min-h-[150px] mb-6"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="mixZone"
+      >
+        <p class="text-gray-500" id="dropText">ลากวัตถุดิบมาวางที่นี่...</p>
+        <div
+          id="mixedItems"
+          class="text-xl mt-4 font-semibold text-pink-700"
+        ></div>
+      </div>
+
+      <!-- ผลลัพธ์ -->
+      <div id="result" class="text-2xl font-bold text-purple-700"></div>
+      <div id="code" class="mt-4 text-xl text-green-700 font-mono"></div>
+      <div
+        draggable="true"
+        ondragstart="drag(event)"
+        id="SecretSauce"
+        class="ingredient bg-white rounded-xl p-4 shadow cursor-move hover:bg-gray-200"
+      >
+        🧪 Secret Sauce
+      </div>
+    </div>
+
+    <script>
+      let ingredients = [];
+
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        if (!ingredients.includes(data)) {
+          ingredients.push(data);
+        }
+
+        document.getElementById(
+          "mixedItems"
+        ).innerText = `วัตถุดิบที่เลือก: ${ingredients.join(" + ")}`;
+        document.getElementById("dropText").style.display = "none";
+
+        if (ingredients.length === 2) {
+          const combo = ingredients.sort().join("+");
+          let resultText = "";
+          let codeText = "";
+
+          if (combo === "Cum+Chocolate" || combo === "Chocolate+Cum") {
+            resultText = "🎉 คุณได้รับโปรโมชั่นลด 50%!";
+            codeText = "โค้ดส่วนลด: Bigger_Nigga";
+          } else if (
+            (ingredients.includes("Apple") && ingredients.includes("Milk")) ||
+            (ingredients.includes("Strawberry") &&
+              ingredients.includes("Water"))
+          ) {
+            resultText = "🎉 คุณได้รับโปรโมชั่นลด 25%!";
+            codeText = "โค้ดส่วนลด: CACACODE";
+          } else {
+            resultText = "😶 ไม่มีโปรโมชั่นสำหรับส่วนผสมนี้";
+            codeText = "";
+          }
+
+          document.getElementById("result").innerText = resultText;
+          document.getElementById("code").innerText = codeText;
+          ingredients = [];
+        }
+        if (combo === "Chocolate+SecretSauce") {
+          resultText = "คุณได้ “Brown Magic!” 🪄🍫";
+          codeText = "รหัสโปรโมชัน: MAGIC-BROWN";
+        }
+      }
+    </script>
+  </body>
+</html>

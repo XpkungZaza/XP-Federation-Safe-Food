@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>GN-Login | Celestial Being</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1b1b2f);
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffae;
+    }
+    .neon-box {
+      box-shadow: 0 0 20px #00ffae, 0 0 40px #0ff inset;
+    }
+    .glow-text {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    }
+  </style>
+</head>
+<body class="h-screen flex items-center justify-center">
+  <div class="bg-[#101820] p-10 rounded-xl neon-box w-full max-w-md">
+    <h1 class="text-3xl font-bold text-center glow-text mb-6">GN-LOGIN</h1>
+    <?php if ($error): ?>
+      <p class="text-red-400 text-center mb-4"><?= $error ?></p>
+    <?php endif; ?>
+    <form action="" method="POST" class="space-y-4">
+      <input type="text" name="username" placeholder="🧑‍🚀 ชื่อผู้ใช้" required
+        class="w-full p-3 rounded bg-black text-white border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-400" />
+      <input type="password" name="password" placeholder="🛡️ รหัสผ่าน" required
+        class="w-full p-3 rounded bg-black text-white border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-400" />
+      <a href="index.html" class="w-full block text-center bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-full transition">
+  เข้าสู่ระบบ
+</a>
+
+
+    <p class="text-sm text-center text-gray-400 mt-2">
+      ยังไม่มีบัญชี? <a href="register.html" class="text-purple-400 underline hover:text-purple-300">สมัครเลย</a>
+    </p>
+    <p class="text-sm text-center text-gray-400 mt-4">Powered by GN Drive - Celestial Being</p>
+  </div>
+</body>
+</html>

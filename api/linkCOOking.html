@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <title>COOKING MENU</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: linear-gradient(135deg, #ff7043, #ff5722);
+        color: white;
+        padding: 25px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 0 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-body h3 {
+        margin: 0 0 10px;
+        color: #ff5722;
+      }
+
+      .card-body p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #444;
+      }
+
+      .price {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2e7d32;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: #222;
+        color: #fff;
+        margin-top: 40px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>🍳 COOKING MENU</header>
+
+    <div class="container">
+      <div class="card">
+        <img
+          src="https://images.aws.nestle.recipes/original/94731a8be2b546c4415533acee5f09cb_artboard_3.jpg"
+        />
+        <div class="card-body">
+          <h3>กระเพราหมู</h3>
+          <p>
+            เนื้อหมู 400 กรัม<br />
+            ใบกะเพรา 50 กรัม<br />
+            กระเทียม 2 หัว
+          </p>
+          <div class="price">💰 50 บาท</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://img.kapook.com/u/2015/surauch/cook2/PT1.jpg" />
+        <div class="card-body">
+          <h3>ผัดไทย</h3>
+          <p>
+            กุ้งสด 5 ตัว<br />
+            เส้นจันทร์ 1/4 กำมือ<br />
+            ไข่ไก่ 1 ฟอง
+          </p>
+          <div class="price">💰 100 บาท</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://www.unileverfoodsolutions.co.th/dam/global-ufs/mcos/SEA/calcmenu/recipes/TH-recipes/salads/%E0%B8%AA%E0%B9%89%E0%B8%A1%E0%B8%95%E0%B8%B3%E0%B9%84%E0%B8%97%E0%B8%A2/%E0%B8%AA%E0%B9%89%E0%B8%A1%E0%B8%95%E0%B8%B3%E0%B9%84%E0%B8%97%E0%B8%A2_header.jpg"
+        />
+        <div class="card-body">
+          <h3>ส้มตำ</h3>
+          <p>
+            มะละกอสับ 100 กรัม<br />
+            ถั่วฝักยาว 2 ฝัก<br />
+            มะเขือเทศ<br />
+            กุ้ง 200 กรัม
+          </p>
+          <div class="price">💰 50 บาท</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://img.kapook.com/u/surauch/cook/FriedRiceSeafood.jpg" />
+        <div class="card-body">
+          <h3>ข้าวผัดทะเล</h3>
+          <p>
+            กุ้ง 200 กรัม<br />
+            ปลาหมึก 200 กรัม<br />
+            หอยลาย 300 กรัม
+          </p>
+          <div class="price">💰 200 บาท</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://img.wongnai.com/p/624x0/2017/09/27/3333195991134d91a776b8513c3d7f9a.jpg"
+        />
+        <div class="card-body">
+          <h3>ก๋วยเตี๋ยวเนื้อ</h3>
+          <p>
+            กุ้ง 500 กรัม<br />
+            กระเทียม 20 กรัม<br />
+            เนื้อ 1 ช้อนโต๊ะ
+          </p>
+          <div class="price">💰 250 บาท</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>© 2026 COOKING WEBSITE | ITPVC2</footer>
+  </body>
+</html>

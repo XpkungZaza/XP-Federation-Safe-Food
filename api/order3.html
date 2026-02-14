@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burgerdam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(135deg, #0f0c29, #f0ffa3, #8c4600e5);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .main-img:hover {
+        transform: rotate(1deg) scale(1.01);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .thumbnail:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+      }
+    </style>
+  </head>
+  <a
+    href="index.html"
+    class="inline-block mb-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded"
+  >
+    ⬅️ ย้อนกลับหน้าเมนู
+  </a>
+  <body class="text-white min-h-screen p-8 font-sans">
+    <div
+      class="max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl shadow-xl p-8 border border-white/20"
+    >
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- กล่องรูปภาพ -->
+        <div class="md:w-1/2 text-center">
+          <img
+            id="mainImage"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/fc/004-soymilk.jpg"
+            alt="Milk For Handsome MEN"
+            class="main-img w-full rounded-xl shadow-xl mb-4 transition-transform duration-500"
+          />
+          <div class="flex justify-center gap-3">
+            <img
+              src="https://thumbs.dreamstime.com/b/fresh-raspberry-mixed-berry-juice-crystal-glass-fresh-raspberry-mixed-berry-juice-crystal-glass-361323395.jpg"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXb7WIz8HUlpmArI0t8wR85f4KLzibat-RxA&s"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2021/2/VN/PE/ZN/33932609/berry-juice.jpg"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://melissaknorris.com/wp-content/uploads/2024/07/Raspberry-Juice_Hero_MKN-1024x771.jpg"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+            <img
+              src="https://www.absolutdrinks.com/wp-content/uploads/ingredient_raspberry-juice_1x1_0307563c619a4aed92d6b8625c5edb33.jpg"
+              onclick="changeImage(this.src)"
+              class="thumbnail w-20 h-20 object-cover rounded-lg cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <!-- รายละเอียดสินค้า -->
+        <div class="md:w-1/2 text-left">
+          <h2 class="text-4xl font-bold text-pink-300 mb-2">
+            Rasberry Superror Hyper Technology Smart Brain Juicy Goodie Taste
+          </h2>
+          <p class="text-white/80 mb-4">
+            น้ำราสเบอรี่สุดอร่อยสกัดจากต้นลำไยจากสวนสุรทองบนดอยสารภีอำเภอสันป่าตองจังหวัดเชียงราย50560<br />อัดแน่นด้วยความเท่ที่แม้แต่ยานแม่ยังต้องเหลียวมอง
+          </p>
+          <p class="text-3xl font-bold text-lime-400 mb-6">฿35</p>
+          <button
+            class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded-xl transition"
+          >
+            🛒 หยิบใส่รถเข็น
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const imageList = [
+        "https://images6.alphacoders.com/104/thumb-1920-1046703.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXb7WIz8HUlpmArI0t8wR85f4KLzibat-RxA&s",
+        "https://5.imimg.com/data5/SELLER/Default/2021/2/VN/PE/ZN/33932609/berry-juice.jpg",
+        "https://melissaknorris.com/wp-content/uploads/2024/07/Raspberry-Juice_Hero_MKN-1024x771.jpg",
+        "https://melissaknorris.com/wp-content/uploads/2024/07/Raspberry-Juice_Hero_MKN-1024x771.jpg",
+        "https://melissaknorris.com/wp-content/uploads/2024/07/Raspberry-Juice_Hero_MKN-1024x771.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      function changeImage(src) {
+        document.getElementById("mainImage").src = src;
+        currentIndex = imageList.indexOf(src);
+      }
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % imageList.length;
+        document.getElementById("mainImage").src = imageList[currentIndex];
+      }, 4000); // เปลี่ยนภาพอัตโนมัติทุก 4 วินาที
+    </script>
+  </body>
+</html>

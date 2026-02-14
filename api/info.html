@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Info - Gundam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0f1f0f;
+      font-family: 'Orbitron', sans-serif;
+      color: #00ff90;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #001f10;
+      border: 2px solid #00ff90;
+      border-radius: 16px;
+      box-shadow: 0 0 30px #00ff90;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ff90;
+      font-size: 2.5em;
+      border-bottom: 2px solid #00ff90;
+      padding-bottom: 15px;
+    }
+
+    .info-section {
+      margin-top: 30px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #007f50;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #7fffdf;
+    }
+
+    .value {
+      color: #ffffff;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #007f50;
+    }
+
+    .gn-button {
+      display: inline-block;
+      padding: 12px 30px;
+      margin: 40px auto 0;
+      background-color: #00ff90;
+      color: #001f10;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #00ff90, 0 0 40px #00ff90;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .gn-button:hover {
+      background-color: #00cc70;
+      color: #ffffff;
+      box-shadow: 0 0 25px #00ff90, 0 0 60px #00ff90;
+      transform: scale(1.05);
+    }
+
+    .button-container {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>GN-User Information</h1>
+
+    <div class="info-section">
+      <div class="info-row">
+        <div class="label">Username</div>
+        <div class="value">SetsunaFSeiei</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Pilot ID</div>
+        <div class="value">CB-00-01</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Mobile Suit</div>
+        <div class="value">GN-001 Exia</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Status</div>
+        <div class="value">ACTIVE / GN Particle Sync: OK</div>
+      </div>
+      <div class="info-row">
+        <div class="label">GN Drive Output</div>
+        <div class="value">100%</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Celestial Being - Innovating Peace with GN Technology.
+    </div>
+
+    <div class="button-container">
+      <a href="javascript:history.back()" class="gn-button">← Back</a>
+    </div>
+  </div>
+  
+</body>
+</html>

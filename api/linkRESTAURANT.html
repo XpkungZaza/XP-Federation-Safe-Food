@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XP Safefood - Restaurant List</title>
+    <style>
+        /* CSS สำหรับตกแต่งหน้าเว็บ */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card-type {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card-location {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .no-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            color: #999;
+            height: 180px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>XP SAFEFOOD</h1>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ_vBTToOHcAvPBhOII7FeSL77W5aiqtMGCQ&s" alt="ชื่อร้าน" class="card-img">
+            <div class="card-content">
+                <div class="card-type">Fried Chicken</div>
+                <p class="card-title">KFC</p>
+                <p class="card-location">📍 Central Festival Chiang Mai</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.mashed.com/img/gallery/mcdonalds-first-ever-mini-mac-location-is-closing-after-40-years/intro-1621277897.jpg" alt="ชื่อร้าน" class="card-img">
+            <div class="card-content">
+                <div class="card-type">Burgers & Fries</div>
+                <p class="card-title">McDonald's</p>
+                <p class="card-location">📍 Nimman Road</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/12/7a/8b/taco-bell-on-old-courthouse.jpg?w=900&h=500&s=1" alt="ชื่อร้าน" class="card-img">
+            <div class="card-content">
+                <div class="card-type">Mexican Food</div>
+                <p class="card-title">Taco Bell</p>
+                <p class="card-location">📍 Maya Shopping Center</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.cmhy.city/uploads/photos/5-Food/247-Pizza/11219-Pizza-hut--Icon-Park-/place11219_20250921_182655.jpg" alt="ชื่อร้าน" class="card-img">
+            <div class="card-content">
+                <div class="card-type">Pizza</div>
+                <p class="card-title">Pizza Hut</p>
+                <p class="card-location">📍 Tha Phae Gate</p>
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiF7er1spi8W85ZMpf27xu37JpwAqRixLPfg&s" alt="ชื่อร้าน" class="card-img">
+            <div class="card-content">
+                <div class="card-type">Burgers</div>
+                <p class="card-title">Burger King</p>
+                <p class="card-location">📍 Chiang Mai Airport</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
